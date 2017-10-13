@@ -1,0 +1,50 @@
+---
+title: "Developing Data Products - Plot using Plotly"
+author: "Vasuprad Kanade"
+date: "October 13, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+##Vasuprad.Kanade@accenture.com
+## Course 9-Developing Data Products - Assignment 2
+```
+
+### Introduction
+
+Course 9 - Developing Data Products - Week 2 - Assignment 1: Create a web page using R Markdown that features a map created with Leaflet.
+
+The goal of the project is to create a web page presentation using R Markdown that features a plot created with Plotly, and to host the resulting web page on either GitHub Pages, RPubs, or NeoCities.
+
+
+```{r Initiation}
+library(ggplot2)
+library(plotly)
+```
+
+### Plot IRIS flower data using Plotly 
+This segment of code selects the relevant data columns, aggregates property damage and crop damage. USe the Damage EXP tp compute total damages.
+
+```{r Data Processing IRIS, echo=TRUE}
+filename <- "iris.csv"
+
+# Load the CSV file from the local directory
+dataset <- read.csv(filename, header=FALSE)
+
+# Set the column names in the dataset
+colnames(dataset) <- c("Sepal.Length","Sepal.Width","Petal.Length","Petal.Width","Species")
+head(dataset)
+
+```
+
+### Plot using Plotly
+Using ColorBrewer Palette Names
+```{r}
+# plot data
+p <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species, colors = "Set1")
+
+p
+
+```
+
