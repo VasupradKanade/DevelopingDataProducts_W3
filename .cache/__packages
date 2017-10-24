@@ -1,0 +1,10 @@
+base
+devtools
+slidify
+ggplot2
+plotly
+bindrcpp
+htmlwidgets
+knitr
+dplyr
+webshot
